@@ -21,8 +21,19 @@ class HomeScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  AnimatedTextKit(
-                      animatedTexts: [FlickerAnimatedText('Portfólio')]),
+                  SizedBox(
+                    height: 50,
+                    child: AnimatedTextKit(
+                      animatedTexts: [
+                        FlickerAnimatedText(
+                          'Portfólio',
+                          textStyle: GoogleFonts.bebasNeue(
+                              color: kBgLightColor, fontSize: 50),
+                        )
+                      ],
+                      repeatForever: true,
+                    ),
+                  ),
                   AnimatedTextKit(
                     repeatForever: true,
                     pause: const Duration(milliseconds: 1200),
