@@ -57,16 +57,9 @@ class HomePageState extends State<HomePage> {
         children: [
           SizedBox(
             height: 50,
-            child: AnimatedTextKit(
-              animatedTexts: [
-                FlickerAnimatedText(
-                  'Portfólio',
-                  textStyle:
-                      GoogleFonts.bebasNeue(color: kBgLightColor, fontSize: 50),
-                )
-              ],
-              isRepeatingAnimation: true,
-              repeatForever: true,
+            child: Text(
+              'Portfólio',
+              style: GoogleFonts.bebasNeue(color: kBgLightColor, fontSize: 50),
             ),
           ),
           const Spacer(),
@@ -154,11 +147,12 @@ class HomePageState extends State<HomePage> {
           radius: size.width * 0.15,
           backgroundColor: Colors.transparent,
           backgroundImage: const AssetImage('assets/images/perfil.png'),
-        )
+        ),
       ],
     );
   }
 
+// ? About Me Carousel Component/BlackBody
   SizedBox _aboutMe(Size size) {
     List<AboutMe> _cards = [
       AboutMe(
@@ -166,7 +160,7 @@ class HomePageState extends State<HomePage> {
         'Minha infância foi ligada em tecnologias, porém apenas em 2020, no lockdown, que me apaixonei por programação, ingressei em uma faculdade federal, onde estou cursando atualmente.',
       ),
       AboutMe('Sobre Mim',
-          'Nascido e criado em Fortaleza, Ceará, Brasil. Amo jogos, músicas e boas companhias. Adoro codar e fico extremamente feliz quando resolvo um bug :). Meu objetivo profissional é evoluir como desenvolvedor, aprendendo e criando novas tecnologias.'),
+          'Nascido e criado em Fortaleza, Ceará, Brasil. Amo jogos, músicas e boas companhias. Adoro codar e fico extremamente feliz quando resolvo um bug :) Meu objetivo profissional é evoluir como desenvolvedor, aprendendo e criando novas tecnologias.'),
     ];
     return SizedBox(
       width: size.width * 0.4,
@@ -227,6 +221,102 @@ Container _whiteBody(Size size) {
     height: size.height,
     decoration: const BoxDecoration(
       color: kBgLightColor,
+    ),
+    child: Column(
+      children: [
+        const SizedBox(height: 16),
+        Text(
+          'Habilidades'.toUpperCase(),
+          style: GoogleFonts.openSans(
+            fontSize: 48,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: kDefaultPadding * 3),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _firstColumn(size),
+            _secondColumn(size),
+          ],
+        )
+      ],
+    ),
+  );
+}
+
+// ? Second Column with Skills
+SizedBox _secondColumn(Size size) {
+  return SizedBox(
+    width: size.width * 0.5,
+    child: Column(
+      children: [
+        Text(
+          'Cursos',
+          style: GoogleFonts.openSans(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: kDefaultPadding * 2),
+        Container(
+          width: size.width * 0.35,
+          height: size.height * 0.35,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  offset: const Offset(0, 10),
+                  blurRadius: 20,
+                  color: kTextColor.withOpacity(0.33),
+                ),
+                const BoxShadow(
+                  offset: Offset(0, -10),
+                  blurRadius: 20,
+                  color: kBgLightColor,
+                ),
+              ]),
+        )
+      ],
+    ),
+  );
+}
+
+// ? First Column with Languages and Frameworks
+SizedBox _firstColumn(Size size) {
+  return SizedBox(
+    width: size.width * 0.5,
+    child: Column(
+      children: [
+        Text(
+          'Linguagens e Frameworks',
+          style: GoogleFonts.openSans(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: kDefaultPadding * 2),
+        Container(
+          width: size.width * 0.35,
+          height: size.height * 0.35,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  offset: const Offset(0, 10),
+                  blurRadius: 20,
+                  color: kTextColor.withOpacity(0.33),
+                ),
+                const BoxShadow(
+                  offset: Offset(0, -10),
+                  blurRadius: 20,
+                  color: kBgLightColor,
+                ),
+              ]),
+        ),
+      ],
     ),
   );
 }
