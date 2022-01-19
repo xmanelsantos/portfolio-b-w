@@ -249,13 +249,13 @@ SizedBox _secondColumn(Size size) {
   List<Course> _course = [
     Course(
       courseName: 'Flutter & Dart - Cod3r',
-      percentege: 0.09,
+      percentege: 0.75,
       courseLink:
           'https://www.cod3r.com.br/courses/aprenda-flutter-dart-e-construa-apps-ios-e-android',
     ),
     Course(
       courseName: 'Criação de Apps - Daniel Ciolfi',
-      percentege: 0.15,
+      percentege: 0.60,
       courseLink: 'https://www.udemy.com/course/lojaflutter/',
     ),
     Course(
@@ -334,37 +334,40 @@ SizedBox _secondColumn(Size size) {
               items: _course.map((course) {
                 return Builder(
                   builder: (BuildContext context) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CircularPercentIndicator(
-                          radius: 120,
-                          lineWidth: 13,
-                          animation: true,
-                          animationDuration: 2500,
-                          percent: course.percentege,
-                          center: Text(
-                            '${(course.percentege * 100).toStringAsFixed(0)}%',
+                    return InkWell(
+                      onTap: () {},
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          CircularPercentIndicator(
+                            radius: 120,
+                            lineWidth: 13,
+                            animation: true,
+                            animationDuration: 2500,
+                            percent: course.percentege,
+                            center: Text(
+                              '${(course.percentege * 100).toStringAsFixed(0)}%',
+                              style: GoogleFonts.openSans(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            circularStrokeCap: CircularStrokeCap.round,
+                            progressColor: kPrimaryColor,
+                            backgroundColor: kBgLightColor,
+                          ),
+                          const SizedBox(height: kDefaultPadding),
+                          Text(
+                            course.courseName,
+                            textAlign: TextAlign.center,
                             style: GoogleFonts.openSans(
-                              fontSize: 20,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          circularStrokeCap: CircularStrokeCap.round,
-                          progressColor: kPrimaryColor,
-                          backgroundColor: kBgLightColor,
-                        ),
-                        const SizedBox(height: kDefaultPadding),
-                        Text(
-                          course.courseName,
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.openSans(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     );
                   },
                 );
@@ -380,9 +383,6 @@ SizedBox _secondColumn(Size size) {
               )),
         ),
         const SizedBox(height: kDefaultPadding),
-        _moreDetails(
-          () {},
-        ),
       ],
     ),
   );
