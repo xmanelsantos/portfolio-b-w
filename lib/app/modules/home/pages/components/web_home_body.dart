@@ -8,6 +8,7 @@ import 'package:portfolio_b_w/app/modules/home/models/about_me.dart';
 import 'package:portfolio_b_w/app/modules/home/models/course.dart';
 import 'package:portfolio_b_w/app/modules/home/store/home_store.dart';
 import 'package:portfolio_b_w/constants/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'skills_percentage_indicator.dart';
 
@@ -289,7 +290,10 @@ SizedBox _secondColumn(Size size) {
               ],
             ),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                launch(
+                    'https://drive.google.com/file/d/1-jTbi74PQoVyuvvmSIJ3UM5xy2N8wAZD/view?usp=sharing');
+              },
               child: Text(
                 'Meu Currículo',
                 textAlign: TextAlign.center,
@@ -335,7 +339,9 @@ SizedBox _secondColumn(Size size) {
                 return Builder(
                   builder: (BuildContext context) {
                     return InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        launch(course.courseLink);
+                      },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
